@@ -1,2 +1,3 @@
 A funny worm malware.
--std=c++17
+MingW Params:
+g++ -std=c++17 -lwinmm main.cpp
